@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ComicCraft — AI Comic Story Creator</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header class="hero">
+  <div>
+    <p class="eyebrow">AI COMIC STORY CREATOR</p>
+    <h1>Turn your idea into a comic.</h1>
+    <p>Describe your story, choose a character and style, then let ComicCraft build five illustrated panels.</p>
+  </div>
+</header>
+
+<main class="container">
+  <form action="/generate" method="post" class="card form-card">
+    <label>Story Prompt
+      <textarea name="story_prompt" required maxlength="2000" placeholder="A brave fox exploring an enchanted forest..."></textarea>
+    </label>
+
+    <div class="grid">
+      <label>Main Character Name
+        <input name="character_name" required placeholder="Milo">
+      </label>
+      <label>Setting
+        <select name="setting">
+          <option>Forest</option><option>School</option><option>Space</option><option>City</option><option>Custom</option>
+        </select>
+      </label>
+      <label>Story Tone
+        <select name="tone">
+          <option>Light-hearted</option><option>Dramatic</option><option>Poetic</option><option>Funny</option>
+        </select>
+      </label>
+      <label>Art Style
+        <select name="art_style">
+          <option>Anime</option><option>Pixel art</option><option>Comic book</option><option>Realistic</option>
+        </select>
+      </label>
+    </div>
+
+    <button type="submit">✨ Generate Comic</button>
+  </form>
+
+  <section class="info card">
+    <h2>How it works</h2>
+    <ol>
+      <li>Gemini creates a structured five-panel outline.</li>
+      <li>Gemini expands it into narration and dialogue.</li>
+      <li>Stable Diffusion creates an illustration for each panel.</li>
+      <li>ComicCraft assembles everything into a downloadable PDF.</li>
+    </ol>
+  </section>
+</main>
+</body>
+</html>

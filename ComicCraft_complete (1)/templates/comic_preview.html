@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Your Comic — ComicCraft</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header class="topbar"><a href="/">← Create another</a><strong>ComicCraft</strong></header>
+<main class="container">
+  <div class="result-head">
+    <div><p class="eyebrow">YOUR GENERATED COMIC</p><h1>Story Preview</h1></div>
+    <a class="button" href="/download/{{ pdf_path.split('/')[-1] }}">Download PDF</a>
+  </div>
+
+  {% for panel in layout %}
+  <article class="panel card">
+    <h2>Panel {{ panel.panel_number }}: {{ panel.title }}</h2>
+    <img src="/static/{{ panel.image_path }}" alt="Comic panel {{ panel.panel_number }}">
+    <p class="scene">{{ panel.scene_description }}</p>
+    {% if panel.caption %}<p><b>Caption:</b> {{ panel.caption }}</p>{% endif %}
+    {% if panel.narration %}<p><b>Narration:</b> {{ panel.narration }}</p>{% endif %}
+    {% if panel.dialogue %}<p class="dialogue">{{ panel.dialogue }}</p>{% endif %}
+  </article>
+  {% endfor %}
+
+  <a class="button secondary" href="/download/{{ pdf_path.split('/')[-1] }}">Download Your Comic as PDF</a>
+</main>
+</body>
+</html>
